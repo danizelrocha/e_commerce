@@ -2,7 +2,7 @@
 
 <h1>O Mundo da Moda</h1>
 
-<div id="carouselExampleIndicators" class="carousel slide">
+<!--  <div id="carouselExampleIndicators" class="carousel slide">
     <div class="carousel-indicators">
       <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
       <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
@@ -27,8 +27,38 @@
       <span class="carousel-control-next-icon" aria-hidden="true"></span>
       <span class="visually-hidden">Next</span>
     </button>
+  </div> -->
+
+<div class="carousel slide">
+  <div class="carousel-indicators">
+    <button
+      *ngFor="let slide of slides; let i = index"
+      type="button"
+      [class.active]="i === activeSlideIndex"
+      (click)="showSlide(i)"
+      [attr.data-bs-slide-to]="i"
+      [attr.aria-current]="i === activeSlideIndex ? 'true' : 'false'"
+      [attr.aria-label]="'Slide ' + (i + 1)"
+    ></button>
   </div>
+  <div class="carousel-inner">
+    <div
+      *ngFor="let slide of slides; let i = index"
+      class="carousel-item"
+      [class.active]="i === activeSlideIndex"
+    >
+      <img [src]="slide.image" class="d-block w-100" [alt]="slide.alt" />
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" (click)="prevSlide()">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" (click)="nextSlide()">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>
 
 <app-footer></app-footer>
-
 
