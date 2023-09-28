@@ -1,6 +1,13 @@
+*{
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+
 .container-fluid {
   background-color: rgb(59, 59, 60);
-  padding: 8px;
+  padding: 10px;
 }
 
 .nav-link{
@@ -10,3 +17,4 @@
 .navbar-brand{
   color: white
 }
+
